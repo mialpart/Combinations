@@ -27,6 +27,39 @@ namespace combination
                 new[]{"tyhjä", "rajoitus"},
             };
 
+            var cartesianLista = new string[]{ };
+            var num = lists[0].Count() * lists[1].Count() * lists[2].Count();
+            for (int i = 0; i < lists[0].Count(); i++)
+            {
+                for (int j = 0; j < lists[1].Count(); j++)
+                {
+                    for (int k = 0; k < lists[2].Count(); k++)
+                    {
+                        var uusiCartesianPari = new List<string>{lists[i][i], lists[j][j], lists[k][k] };
+                        //cartesianLista.Add(uusiCartesianPari);
+                        Console.WriteLine(uusiCartesianPari[0] + " " + uusiCartesianPari[1] + " " + uusiCartesianPari[2]);
+                    }
+                }
+            }
+
+            Console.WriteLine("\n ------- Foreach ------- \n");
+
+            foreach (var item in lists[0])
+            {
+
+                foreach (var item1 in lists[1])
+                {
+                    foreach (var item2 in lists[2])
+                    {
+
+                        Console.WriteLine(item.ToString() + " " + item1.ToString() + " " + item2.ToString() + " ");
+
+                    }
+                }
+            }
+
+            Console.WriteLine("\n -------------- \n");
+
             var cp = lists.CartesianProduct();
 
             foreach (var line in cp)
